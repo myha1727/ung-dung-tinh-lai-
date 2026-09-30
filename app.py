@@ -4,7 +4,6 @@ import base64
 # ==============================
 # ẢNH NỀN FULL APP
 # ==============================
-
 def set_background(image_file):
     with open(image_file, "rb") as f:
         encoded_image = base64.b64encode(f.read()).decode()
@@ -12,13 +11,27 @@ def set_background(image_file):
     st.markdown(
         f"""
         <style>
-        .stApp {{
-            background-image: url("data:image/jpeg;base64,{encoded_image}");
+
+        /* Ảnh nền */
+        [data-testid="stAppViewContainer"] {{
+            background-image:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.55),
+                    rgba(255, 255, 255, 0.55)
+                ),
+                url("data:image/jpeg;base64,{encoded_image}");
+
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }}
+
+        /* Làm thanh trên cùng trong suốt */
+        [data-testid="stHeader"] {{
+            background: rgba(255, 255, 255, 0);
+        }}
+
         </style>
         """,
         unsafe_allow_html=True
