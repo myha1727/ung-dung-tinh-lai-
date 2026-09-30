@@ -64,7 +64,7 @@ st.markdown("""
 
     .sub-title {
         text-align: center;
-        color: #666;
+        color: #0066CC;
         margin-bottom: 25px;
     }
 
