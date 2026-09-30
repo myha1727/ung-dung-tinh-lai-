@@ -48,7 +48,226 @@ st.set_page_config(
     page_icon="💰",
     layout="centered"
 )
+def set_background(image_file):
+    with open(image_file, "rb") as f:
+        encoded_image = base64.b64encode(f.read()).decode()
 
+    st.markdown(
+        f"""
+        <style>
+
+        /* =========================================
+           1. ẢNH NỀN
+           ========================================= */
+
+        [data-testid="stAppViewContainer"] {{
+            background-image:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.62),
+                    rgba(255, 255, 255, 0.62)
+                ),
+                url("data:image/jpeg;base64,{encoded_image}");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+
+        [data-testid="stHeader"] {{
+            background: rgba(255, 255, 255, 0);
+        }}
+
+
+        /* =========================================
+           2. KHU VỰC NỘI DUNG
+           ========================================= */
+
+        .block-container {{
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+            max-width: 1100px;
+        }}
+
+
+        /* =========================================
+           3. TOÀN BỘ CHỮ
+           ========================================= */
+
+        .stApp {{
+            color: #00529B;
+        }}
+
+        p, label {{
+            color: #00529B !important;
+        }}
+
+
+        /* =========================================
+           4. TIÊU ĐỀ
+           ========================================= */
+
+        h1, h2, h3, h4, h5, h6 {{
+            color: #00529B !important;
+        }}
+
+        .main-title {{
+            text-align: center;
+            font-size: 34px;
+            font-weight: 700;
+            color: #00529B !important;
+            margin-bottom: 5px;
+        }}
+
+        .sub-title {{
+            text-align: center;
+            font-size: 16px;
+            color: #3978A8 !important;
+            margin-bottom: 25px;
+        }}
+
+
+        /* =========================================
+           5. Ô NHẬP SỐ
+           ========================================= */
+
+        [data-testid="stNumberInput"] input {{
+            color: #00529B !important;
+            background-color: rgba(255, 255, 255, 0.92) !important;
+            border: 1.5px solid #80B9E3 !important;
+            border-radius: 10px !important;
+            font-weight: 500;
+        }}
+
+        [data-testid="stNumberInput"] input:focus {{
+            border-color: #0066CC !important;
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.15) !important;
+        }}
+
+
+        /* =========================================
+           6. SELECTBOX
+           ========================================= */
+
+        [data-baseweb="select"] > div {{
+            background-color: rgba(255, 255, 255, 0.92) !important;
+            border-color: #80B9E3 !important;
+            border-radius: 10px !important;
+        }}
+
+        [data-baseweb="select"] {{
+            color: #00529B !important;
+        }}
+
+
+        /* =========================================
+           7. RADIO BUTTON
+           ========================================= */
+
+        [data-testid="stRadio"] label {{
+            color: #00529B !important;
+            font-weight: 500;
+        }}
+
+
+        /* =========================================
+           8. METRIC - KẾT QUẢ
+           ========================================= */
+
+        [data-testid="stMetric"] {{
+            background: rgba(255, 255, 255, 0.90);
+            border: 1px solid #B8D8F0;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 82, 155, 0.10);
+        }}
+
+        [data-testid="stMetricLabel"] {{
+            color: #3978A8 !important;
+            font-weight: 600;
+        }}
+
+        [data-testid="stMetricValue"] {{
+            color: #00529B !important;
+            font-weight: 700;
+        }}
+
+
+        /* =========================================
+           9. NÚT BẤM
+           ========================================= */
+
+        .stButton > button {{
+            background-color: #0066CC !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 10px !important;
+            padding: 10px 25px !important;
+            font-weight: 600 !important;
+            transition: 0.2s;
+        }}
+
+        .stButton > button:hover {{
+            background-color: #00529B !important;
+            color: white !important;
+        }}
+
+
+        /* =========================================
+           10. KHUNG THÔNG TIN
+           ========================================= */
+
+        .result-box {{
+            background: rgba(255, 255, 255, 0.90);
+            border: 1px solid #B8D8F0;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(0, 82, 155, 0.08);
+        }}
+
+
+        /* =========================================
+           11. KHUNG CÔNG THỨC
+           ========================================= */
+
+        .formula-box {{
+            background: rgba(235, 246, 255, 0.92);
+            border-left: 5px solid #0066CC;
+            border-radius: 10px;
+            padding: 18px;
+            margin-top: 15px;
+        }}
+
+
+        /* =========================================
+           12. BẢNG DỮ LIỆU
+           ========================================= */
+
+        [data-testid="stDataFrame"] {{
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+        }}
+
+
+        /* =========================================
+           13. ĐƯỜNG PHÂN CÁCH
+           ========================================= */
+
+        hr {{
+            border: none;
+            border-top: 1px solid rgba(0, 102, 204, 0.25);
+            margin: 25px 0;
+        }}
+
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+# Gọi ảnh nền
+set_background("logo.jpg")
 # =========================================================
 # CSS
 # =========================================================
