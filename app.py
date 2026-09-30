@@ -1,6 +1,28 @@
 import streamlit as st
-st.image("logo.jpg")
 import math
+import base64
+# ==============================
+# ẢNH NỀN FULL APP
+# ==============================
+
+def set_background(image_file):
+    with open(image_file, "rb") as f:
+        encoded_image = base64.b64encode(f.read()).decode()
+
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("data:image/jpeg;base64,{encoded_image}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 # =========================================================
 # CẤU HÌNH TRANG
