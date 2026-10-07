@@ -7,7 +7,7 @@ import base64
 # =========================================================
 
 st.set_page_config(
-    page_title="Máy tính lãi suất tiết kiệm",
+    page_title="Máy tính lãi suất tiết kiệm Mỹ Hà",
     page_icon="💰",
     layout="centered"
 )
@@ -323,7 +323,7 @@ set_background("logo.jpg")
 st.markdown(
     f"""
     <div class="main-title">
-        💰 MÁY TÍNH LÃI SUẤT TIẾT KIỆM
+        💰 MÁY TÍNH LÃI SUẤT TIẾT KIỆM MỸ HÀ
     </div>
     """,
     unsafe_allow_html=True
@@ -1000,7 +1000,7 @@ st.divider()
 st.markdown(
     """
     <div class="footer">
-        💰 Máy tính lãi suất tiết kiệm | Streamlit
+        💰 Máy tính lãi suất tiết kiệm Mỹ Hà | Streamlit
     </div>
     """,
     unsafe_allow_html=True
